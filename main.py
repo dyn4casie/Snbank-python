@@ -37,25 +37,6 @@ def staff_login():
         print ("User details does not exist")
     return user_exist,username
 
-#function to generate account number
-def generate_account_number():
-    generate=True
-    while generate:
-        account_number = "2"+''.join(random.choice("0123456789")for i in range(9))
-        customer = open("customer.txt", "r")
-        check =customer.readlines()
-        for x in check :
-            yes= account_number in str(x)
-            if yes == True:
-                generate = True
-            else:
-                generate = False
-    else:
-        print ("Account number is ", account_number)
-    
-
-    return account_number
-
 #function to create account
 def create_account (username):
     account_name = input ("Enter account name : ")
@@ -75,11 +56,12 @@ def create_account (username):
     elif _type == "3":
         account_type = "Business"
     opening_balance = input("Enter opening balance : ")
-    account_number = generate_account_number()
+    account_number = str(random.randrange(10**9, 10**10))
     customers = open("customer.txt", "a")
     account_details = "\n"+account_name+" ; "+account_number+" ; "+account_type+ " ; "+ account_email+ " ; "+ str(opening_balance)
     customers.write(account_details)
     customers.write("\n   created by "+username+" at "+str(datetime.datetime.now()))
+    print ("Account number is ", account_number)
     print("Account created successfully")
     customers.close()
 
@@ -103,6 +85,11 @@ def check_email(email):
         correct_email=False
         
     return correct_email
+
+
+    
+
+    return account_number
 
 #function to fetch account details
 def fetch_account(account_number,username):

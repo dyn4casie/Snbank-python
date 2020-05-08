@@ -1,10 +1,4 @@
-first_staff
-password123
-first@gmail.com
-First Staff
-
 Staff details
-Andrew2020,Osabuede,buedgabby@gmail.com,Andrew Osabuede Gabriel,
     Username:Password:Email:Full Name
 1.  Dyn4casie:admin
     dyn4casie@gmail.com
